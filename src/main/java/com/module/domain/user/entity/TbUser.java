@@ -1,21 +1,24 @@
 package com.module.domain.user.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import com.module.db.base.BaseEntity;
+import com.module.domain.user.model.TbUserDto;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-public class TbUser {
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder(builderMethodName = "TbUserBuilder")
+public class TbUser extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     private String name, address;
-
 
 }
