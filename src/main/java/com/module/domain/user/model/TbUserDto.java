@@ -7,5 +7,5 @@ public class TbUserDto {
 
     private Long userId;
 
-    private String name, address;
+    private String pwd, email, name;
 }

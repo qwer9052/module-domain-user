@@ -19,6 +19,6 @@ public class TbUser extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    private String name, address;
+    private String pwd, email, name;
 
 }
