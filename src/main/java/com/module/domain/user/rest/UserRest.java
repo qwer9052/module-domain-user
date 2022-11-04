@@ -12,14 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @RequestMapping("/v1/user")
-public interface UserRest {
+public interface UserRest  {
 
+    @PostMapping("/login")
+    JwtDto emailLogin(TbUserDto userDto);
 
-    @GetMapping()
+    @GetMapping("/jwt/login")
     @JwtAuth
-    Long findUser(Long userId);
-    @PostMapping()
+    JwtDto jwtLogin(Long userId);
+
+    @PostMapping
     @LogExecutionTime
     JwtDto signup(@RequestBody TbUserDto tbUserDto) throws Exception;
+
+    @GetMapping
+    @JwtAuth
+    TbUserDto findUser(Long userId);
 
 }

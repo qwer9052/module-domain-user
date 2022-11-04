@@ -1,10 +1,8 @@
 package com.module.domain.user.entityrepo;
 
-import com.module.domain.user.entity.TbUser;
+import com.module.db.entity.user.TbUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -13,5 +11,7 @@ public interface EUserRepo extends JpaRepository<TbUser, Long> {
 
     Optional<TbUser> findByEmail(String email);
 
-    Optional<TbUser> findByUserId(Long userId);
+    Optional<TbUser> findById(Long userId);
+
+    Optional<TbUser> findByEmailAndPwd(String email, String pwd);
 }
