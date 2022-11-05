@@ -1,6 +1,6 @@
 package com.module.domain.user.entityrepo;
 
-import com.module.db.entity.user.TbUser;
+import com.module.db.user.entity.TbUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 

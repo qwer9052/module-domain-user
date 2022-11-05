@@ -1,8 +1,9 @@
 package com.module.domain.user.repo;
 
-import com.module.db.entity.user.TbUser;
+import com.module.core.exception.CommonException;
+import com.module.db.user.entity.TbUser;
 import com.module.domain.user.entityrepo.EUserRepo;
-import com.module.domain.user.model.TbUserDto;
+import com.module.db.user.model.TbUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +14,12 @@ public class UserRepo {
     @Autowired
     EUserRepo eUserRepo;
 
-    public Optional<TbUser> findById(Long userId) {
-        return eUserRepo.findById(userId);
+//    public Optional<TbUser> findById(Long userId) {
+//        return eUserRepo.findById(userId);
+//    }
+
+    public TbUser findById(Long userId) {
+        return eUserRepo.findById(userId).orElseThrow(()->new CommonException("존재 하지 않는 유저 입니다."));
     }
 
     public TbUser saveUser(TbUserDto tbUserDto) {
