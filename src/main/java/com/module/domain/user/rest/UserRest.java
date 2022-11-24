@@ -4,6 +4,7 @@ import com.module.core.annotation.JwtAuth;
 import com.module.core.annotation.LogExecutionTime;
 import com.module.core.jwt.JwtDto;
 import com.module.db.user.model.TbUserDto;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/v1/user")
